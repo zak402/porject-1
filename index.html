@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>React App</title>
+    <style>
+     /*---------- reset -------------*/
+     h1
+      {
+        letter-spacing:5px;
+        line-height:60px;
+      }
+      h2
+      {
+        letter-spacing:3px;
+        line-height:50px;
+      }
+      p
+      {
+       line-height:2.3rem;
+       color:#666;
+      }
+     .view_more
+    {
+      background: #000;
+      width: 172px;
+      color: yellow;
+      padding: 5px 4px 4px 20px;
+      border-radius: 50px;
+    }
+    .view_more:hover
+    {
+      background: yellow;
+      color:#000;
+      cursor: pointer;;
+    }
+    .view_more:hover span i
+    {
+      background:#000;
+      color:yellow;
+    }
+    .view_more .view_more_content
+    {
+      transition:all 0.5s;
+    }
+
+    .view_more:hover .view_more_content
+    {
+      margin-left:30px;
+    }
+    .view_more span i
+    {
+      transition:all 0.5s;
+    }
+    .view_more:hover span i 
+    {
+      margin-left:-125px;
+    }
+    .view_more span
+    {
+      display: inline-block;
+      font-weight:bold;
+    }
+    .view_more span i
+    {
+      color: #000;
+      background: yellow;
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      line-height: 40px;
+      margin-left: 23px;
+      border-radius: 80px;
+    }
+    .view_Store_content
+    {
+      margin-top:100px
+    }
+      @media(max-width:552px)
+      {
+        h2
+        {
+          font-size:25px;
+          letter-spacing:2px;
+          line-height:40px;
+        }
+        h1
+        {
+          font-size:30px;
+          line-height:40px;
+          letter-spacing:4px;
+        }
+        .view_more
+        {
+          background: #000;
+          width: 150px;
+          color: yellow;
+          padding: 7px 1px 7px 15px;
+          border-radius: 50px;
+        }
+        .view_more span i
+        {
+         color: #000;
+         background: yellow;
+         width: 35px;   
+         height: 35px;
+         text-align: center;
+         line-height: 36px;
+         margin-left: 9px;
+         border-radius: 80px;
+        }
+      }
+     /*--------- end reset ------------*/
+
+
+     /*---------chevron top ------------*/
+     .back-to-top
+     {
+      background: #333;
+      width: 50px;
+      height: 50px;
+      line-height:50px;
+      color: yellow;
+      position: fixed;
+      z-index: 99999999999999999;
+      top: 579px;
+      right: 21px;
+      text-align: center;
+      transition:all 0.5s;
+      display:none;
+     }
+     .back-to-top:hover
+     {
+       background:yellow;
+       color:#000;
+       cursor: pointer;
+     }
+     /*--------- end chevron top ------------*/
+
+     /*--------- sidebar ------------*/
+     .sidebar
+     {
+      background-color:rgba(0,0,0,0.8);
+       position: fixed;
+       z-index:9999;
+       width:100%;
+       height:100%;
+       display:none;
+     }
+     .sidebar_content
+     {
+       position:fixed;
+       right:0;
+       background:#2b2b2b;
+       opacity:1;
+       height:100%;
+       width:400px;
+       right:-400px;
+       padding:30px 50px;
+     }
+     .sidebar_content hr
+     {
+       border:1px solid #fff;
+     }
+     .Shoping_cart h3
+     {
+       color:#fff;
+     }
+     .Shoping_cart span
+     {
+      color: #333;
+      background: yellow;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      border-radius: 50%;
+      text-align: center;
+      display: inline-block;
+      margin-top: 6px;
+      margin-left: 103px; 
+      font-weight:bold;
+     }
+     .list-cart
+     {
+       margin-top:44px;
+       margin-bottom:50px;
+     }
+     .list-cart img
+     {
+       border-radius:5px;
+     }
+     .list-cart span
+     {
+       display: inline-block;
+     }
+     .list-cart-content
+     {
+       margin-left:120px;
+     }
+     .list-cart-content h4
+     {
+       color:#fff;
+       font-size:18px;
+       line-height:29px;
+     }
+     .detail-cart
+     {
+       color:#fff;
+     }
+     .detail-cart h5
+     {
+       font-size:15px;
+     }
+     .detail-cart .price
+     {
+       color:yellow;
+     }
+     .price-list
+     {
+       color:yellow;
+       font-weight: bold;
+     }
+     @media(max-width:552px)
+     {
+       .sidebar
+       {
+         top:0;
+         z-index:9999999;
+       }
+      .sidebar_content
+      {
+        width:90%;
+        padding:20px;
+      }
+     }
+     /*--------- end sidebar ------------*/
+
+     /*--------- navbar ------------*/
+     .navbar-toggler-btn
+     {
+      width: 22px;
+      height: 3px;
+      display: block;
+      background: yellow;
+      margin-bottom: 3px;
+     }
+     .navbar
+     {
+       z-index:99999;
+       top:0;
+       display:none;
+       background:#2a2a2a;
+       position:fixed;
+       width:100%;
+     }
+     .navbar-light .navbar-toggler {
+      position: relative;
+      left: 70%;
+      color:#fff;
+     }
+     .navbar-light .navbar-nav .nav-link
+     {
+       color:#fff;
+     }
+     .navbar_tab
+     {
+       position: relative;
+       background:#2b2b2b;
+       width:100%;
+       height:52px;
+       line-height:52px;
+     }
+     .navbar_tab .logo
+     {
+       position:relative;
+       z-index:99;
+     }
+     .Links a
+     {
+       color:#fff;
+     }
+     .Links:first-child a:not(:first-child)
+     {
+       margin-left:34px;
+     }
+     .Links:last-child a:not(:last-child)
+     {
+      margin-right:34px;
+     }
+     @media(max-width:575px)
+     {
+
+      .navbar_tab
+      {
+        display: none;
+      } 
+      .nav-mobile
+      {
+        display:block;
+      }
+     }
+    
+     /*--------- end navbar------------*/
+
+     /*----------- header -------------*/
+    .background_header
+    {
+      background:url("img/background.jpg");
+      width:100%;
+      height:550px;
+      position: relative;
+    }
+    .header
+    {
+      padding:0px 40px;
+      position: absolute;
+      top:52px;
+      width:100%;
+    }
+    .header_content
+    {
+      background:url("img/header.jpg");
+      background-repeat:no-repeat;
+      background-size:cover;
+      padding:150px 50px 130px 50px;
+      text-align:center;
+      color:#fff;
+    }
+    .header_content h1 span
+    {
+      font-weight:bold;
+    }
+    .header_content form
+    {
+      justify-content:center;
+      margin-bottom:20px;
+    }
+    .header_content form input[type="text"]
+    {
+      width:55%;
+      padding:13px 0px;
+      padding-left:10px;
+    }
+    .header_content form button
+    {
+      background:#fff;
+      padding:13px 23px;
+      margin-top:8px;
+      margin-left:-10px;
+    }
+    .header_content form button i
+    {
+      color:#666;
+      font-size:20px;
+    }
+    .categorie-active
+    {
+      background:yellow;
+      color:#000
+    }
+    .header_categorie
+    {
+      text-align:center;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .header_categorie ul
+    {
+      margin-top:24px;
+    }
+    .header_categorie ul li
+    {
+      display: inline-block;
+      margin-left:20px;
+      border:1px solid #fff;
+      padding:2px 20px;
+      border-radius:50px;
+      font-size:12px;
+      transition:all 0.5s;
+      margin-bottom:10px;
+    }
+    .header_categorie ul li:hover
+     {
+       background:yellow;
+       color:#000;
+       border:1px solid yellow;
+       cursor: pointer;
+     }
+     @media(max-width:992px)
+     {
+      .header_categorie
+      {
+        flex-direction:column;
+      }
+     }
+     @media (max-width:768px) {
+      .header
+      {
+        padding:0;
+      }
+      .header_content
+      {
+        padding:100px 0px;
+      }
+      .header_content form input[type="text"]
+      {
+        width:80%;
+      }
+      .header_categorie ul li
+      {
+        margin-bottom:10px;
+      }
+     }
+
+    /*------------- end header --------------*/
+
+    /*------------- Featured --------------*/
+    .Featured
+    {
+      background:#f7f7f7;
+      padding:80px 0px 100px 0px;
+    }
+    .Featured .owl-nav
+    {
+      display:none;
+    }
+    .Featured h4
+    {
+      text-align:right;
+    }
+    .Featured  .store_card
+    {
+      background:#fff;
+      border:1px solid #ddd;
+      overflow: hidden;
+      display:flex;
+      height:300px;
+      align-items: center;
+      padding:50px 20px;
+      transition:all 0.5s;
+    }
+    .Featured  .store_card:hover
+    {
+      flex-direction:column;
+      background:#fff;
+      box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05)!important;
+    }
+    .Featured .store_card button
+    {
+      margin-top:90px;
+      transition:all 0.5s;
+    }
+    .more-store-mobile
+    {
+      margin:50px auto 0px auto;
+    }
+    .Featured .store_card button,
+    .more-store-mobile
+    {
+      display: none;
+    }
+    .Featured .store_card button,
+    .more-store-mobile
+    {
+      width:150px;
+      background:#000;
+      color:yellow;
+      border-radius:50px;
+    }
+
+    .Featured  .store_card:hover button
+    {
+      display: block;
+    }
+    .Featured .store_card button:hover
+    {
+      background: yellow;
+      color:#000;
+    }
+    .more-store
+    {
+      background:#000;
+      position:absolute;
+      right:0;
+      width:230px;
+      height:299px;
+      color: yellow;
+      z-index:9;
+      padding:230px 20px 0px 20px;
+      text-align:left;
+    }
+    .more-store a
+    {
+      color:yellow;
+    }
+    .more-store i
+    {
+      background:yellow;
+      width:40px;
+      height:40px;
+      line-height:40px;
+      color:#000;
+      border-radius:50%;
+      margin-left:50px;
+      margin-top:5px;
+      text-align: center;
+    }
+    .link_categorie .active
+    {
+      background:#333;
+      border-radius:80px;
+      color:yellow;
+      padding:6px 0;
+      display: inline-block;
+      width:120px;
+    }
+    .link_categorie a
+    {
+      color:#666;
+    }
+    @media(max-width:992px)
+    {
+      .Featured
+      {
+        padding:80px 0px 50px 0px;
+      }
+      .Featured h4
+      {
+        text-align:center;
+        margin-top:11px;
+      }
+      .more-store
+      {
+        display:none;
+      }
+      .more-store-mobile
+      {
+        display:block;
+      }
+      .owl-three
+      {
+        margin-top:8px;
+      }
+    }
+    @media(max-width:552px)
+    {
+      .Featured h4
+      {
+        margin-bottom:20px;
+      }
+    }
+    /*------------- end Featured --------------*/
+
+    /*------------- New store --------------*/
+    .New_Store
+    {
+      padding:50px 0px;
+    }
+    .New_Store_content
+    {
+      margin-top:70px;
+    }
+    /*------------- end New store --------------*/
+
+
+    /*------------- popular item --------------*/
+    .popular_item
+    {
+      background:#f6f6f6;
+      padding:80px 0px;
+    }
+    .popular_item .owl-nav
+    {
+      display:none;
+    }
+    .popular_item p
+    {
+      margin-top:40px;
+      margin-bottom:80px;
+      width:300px;
+    }
+    .popular_item hr
+    {
+      border:1px solid #999;
+    }
+    .popular_item .popular_card
+    {
+      background:#fff;
+      border:1px solid #ddd;
+      padding:10px;
+      box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05)!important;
+    }
+    .popular_item .popular_card i
+    {
+      background: #000;
+     color: yellow;
+     width: 40px;
+     height: 40px;
+     line-height: 40px;
+     border-radius: 50%;
+     text-align: center;
+     position: relative;
+     z-index: 99999;
+     left: 70%;
+     top: 31px;
+    }
+    .popular_item .popular_card h5
+    {
+      font-size:15px;
+    }
+     .popular_item .owl-carousel .owl-stage-outer
+    {
+      padding:46px 0;
+    }
+    .chevron-control
+    {
+      margin-top:80px;
+    }
+    @media(max-width:552px)
+    {
+      .popular_item h2
+      {
+        text-align:center;
+      }
+    }
+    /*------------- end popular item --------------*/
+
+
+    /*------------- footer --------------*/
+    footer
+    {
+      background:#1a1a1a;
+      padding-top:50px;
+    }
+    .footer-copyright span
+    {
+      color:#999;
+    }
+    footer hr
+    {
+      border:1px solid #313131;
+    }
+    footer h5
+    {
+      color:yellow;
+    }
+    footer .links li a
+    {
+      color:#fff;
+    }
+    footer .social li
+    {
+      display:inline;
+    }
+    footer .social  li:not(:first-child)
+    {
+      margin-left:10px;
+    }
+    footer .social li a
+    {
+      font-size:18px;
+    }
+    @media(max-width:992px)
+    {
+      footer h5
+      {
+        font-size:14px;
+      }
+    }
+    @media(max-width:552px)
+    {
+      .footer-copyright 
+      {
+        text-align:center;
+      }
+    }
+    /*------------- end footer --------------*/
+
+    </style>
+  </head>
+  <body>
+        <!--back to top -->
+        <div class="back-to-top">
+          <i class="fa fa-chevron-up"></i>
+        </div>
+        <!-- end back tot top-->
+
+        <nav class="navbar navbar-expand-lg navbar-light  nav-mobile">
+            <a class="navbar-brand text-white" href="#">Logo</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-btn"></span>
+              <span class="navbar-toggler-btn"></span>
+              <span class="navbar-toggler-btn"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">account</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#">About</a>
+                  </li>
+                  <li class="nav-item">
+                        <a class="nav-link" href="#">my order</a>
+                   </li>
+                   <li class="nav-item">
+                      <a href="" class="shopping-cart"><i class="fa fa-shopping-cart text-white"></i></a>
+                    </li>
+            </div>
+          </nav>
+          <!--nav-->
+        <!-- sidebar -->
+        <div class="sidebar">
+            <div class="sidebar_content">
+                <div class="Shoping_cart mb-3">
+                  <h3 class="pull-left">Shoping cart</h3>
+                  <span class="shoping-title">2</span>
+                </div>
+                <hr>
+                <div class="list-cart">
+                  <img src="img/backpack.jpg" width="100px" height="100px" class="pull-left"/>
+                  <div class="list-cart-content">
+                      <h4 class="list-title">light weight college backbad</h4>
+                      <span class="price-list">20 $</span>
+                  </div>
+                </div>
+                <p></p>
+                <div class="list-cart">
+                    <img src="img/smartwatch.jpg" width="100px" height="100px"  class="pull-left"/>
+                    <div class="list-cart-content">
+                        <h4 class="list-title">light weight college backbad</h4>
+                        <span class="price-list">20 $</span>
+                    </div>
+                  </div>
+                  <div class="detail-cart">
+                      <hr>
+                      <h5> Have a voucher?</h5>
+                      <hr class="mb-4">
+                    <div class="detail-content">
+                        <h5 class="mb-4 pull-left">Subtotal</h5>
+                        <h5 class="mb-4 text-right  price">169$</h5>
+                    </div>
+                    <div class="detail-content">
+                        <h5 class="mb-4 pull-left">Subtotal</h5>
+                        <h5 class="mb-4 text-right price">Free</h5>
+                    </div>
+                    <hr>
+                    <div class="detail-content">
+                        <h5 class="mb-4 pull-left">Subtotal</h5>
+                        <h5 class="mb-4 text-right  price">169$</h5>
+                    </div>
+                  </div>
+              </div>
+        </div>
+        <!-- end sidebar -->
+
+        <!-- navbar -->
+        <div class="navbar_tab">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4 Links text-left">
+                        <a href="">About</a>
+                        <a href="">How to order</a>
+                   </div>
+                   <div class="col-sm-4 text-center logo">
+                      <img src="img/logo.png" width="70%"/>
+                    </div>
+                    <div class="col-sm-4 Links text-right">
+                        <a href="">my account</a>
+                        <a href="" class="shopping-cart"><i class="fa fa-shopping-cart text-white"></i></a>
+                    </div>
+               </div>
+            </div>
+          </div>
+          <!-- end navbar -->
+
+    <!-- header -->
+    <div class="background_header"></div>
+    <div class="header">
+      <div class="header_content">
+        <H1><span>Shop online from</span><br>anywhere <span>in the world</span></H1>
+        <form class="form-inline mr-auto">
+              <input type="text" class="form-control" placeholder="what you looking for">
+            <button type="submit" class="btn btn-default mb-2"><i class="fa fa-search"></i></button>
+        </form>
+        <div class="header_categorie">
+              <h4>categorie :</h4>
+              <ul class="list-unstyled">
+                  <li>clothing</li>
+                  <li>Technologiy</li>
+                  <li>Home accessories</li>
+                  <li>Beaty & Personale care</li>
+              </ul>
+         </div>
+      </div>
+    </div>
+    <!-- end header -->
+
+    <!-- New Store -->
+    <div class="Featured text-center">
+        <div class="container">
+          <h2 class="mb-3">Featured Shop</h2>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam aut laboriosam</p>
+        </div>
+        <div class="featured_categorie text-center mb-4 mt-4">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-2">
+                  <h4>categorie</h4>
+              </div>
+              <div class="col-md-10">
+            <div class="owl-three owl-carousel owl-theme">
+                <div class="item">
+                  <span class="link_categorie"><a href="" class="active">All Stores</a></span>
+                </div>
+                <div class="item">
+                    <span class="link_categorie"><a href="">Man</a></span>
+                  </div>
+              <div class="item">
+                  <span class="link_categorie"><a href="">women</a></span>
+              </div>
+              <div class="item">
+                  <span class="link_categorie"><a href="">Kids</a></span>
+              </div>
+              <div class="item">
+                  <span class="link_categorie"><a href="">Technologiy</a></span>
+              </div>
+              <div class="item">
+                  <span class="link_categorie"><a href="">Beaty</a></span>
+              </div>
+            </div>
+              </div>
+            </div>
+          </div>
+       </div>
+        <div class="more-store">
+          <a href="">
+              <h5 class="pull-left">More <br> store</h5>
+              <i class="fa fa-chevron-right"></i>
+          </a>
+        </div>
+        <div class="owl-one owl-carousel owl-theme">
+            <div class="item store_card">
+              <img src="img/Walmart.png" class="mb-3"/>
+              <button class="btn btn-default">Discover</button>
+            </div>
+            <div class="item store_card">
+                <img src="img/Walmart.png" class="mb-3"/>
+                <button class="btn btn-default">Discover</button>
+
+            </div>
+            <div class="item store_card">
+                <img src="img/Walmart.png" class="mb-3"/>
+                <button class="btn btn-default">Discover</button>
+
+            </div>
+            <div class="item store_card">
+                <img src="img/Walmart.png" class="mb-3"/>
+                <button class="btn btn-default">Discover</button>
+
+            </div>
+            <div class="item store_card">
+                <img src="img/Walmart.png" class="mb-3"/>
+                <button class="btn btn-default">Discover</button>
+
+            </div>
+        </div>
+            <button class="btn btn-default more-store-mobile">More Store </button>
+      </div>
+      <!-- end New Store -->
+
+
+    <!-- New Store -->
+    <div class="New_Store">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <img src="img/store.png" width="90%">
+          </div>
+          <div class="col-md-4 New_Store_content">
+            <h2>New Store<br> Added</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <div class="view_more">
+              <span class="view_more_content">View store</span>
+              <span><i class="fa fa-chevron-right"></i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end New Store -->
+
+    <!-- popular item-->
+    <div class="popular_item">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+              <h2>popular <br> items</h2>
+          </div>
+          <div class="col-md-8 text-center">
+            <div class="owl-three owl-carousel owl-theme">
+                <div class="item">
+                    <span class="link_categorie"><a href="" class="active">All Stores</a></span>
+                  </div>
+                  <div class="item">
+                      <span class="link_categorie"><a href="">Man</a></span>
+                    </div>
+                <div class="item">
+                    <span class="link_categorie"><a href="">women</a></span>
+                </div>
+                <div class="item">
+                    <span class="link_categorie"><a href="">Kids</a></span>
+                </div>
+                <div class="item">
+                    <span class="link_categorie"><a href="">Technologiy</a></span>
+                </div>
+                <div class="item">
+                    <span class="link_categorie"><a href="">Beaty</a></span>
+                </div>
+          </div>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-5">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, nemo ea! Necessitatibus error</p>
+                <div class="view_more">
+                    <span class="view_more_content">View store</span>
+                    <span><i class="fa fa-chevron-right"></i></span>
+                </div>
+                <div class="chevron-control text-right">
+                    <span><i class="fa fa-chevron-left"></i></span>
+                    <span><i class="fa fa-chevron-right"></i></span>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="owl-two owl-carousel owl-theme">
+                    <div class="item popular_card">
+                      <h4>25$</h4>
+                      <img src="img/casque.png" class="mb-3"/>
+                      <h5>Sephora makeup kit</h5>
+                      <i class="fa fa-plus"></i>
+                    </div>
+                    <div class="item popular_card">
+                        <h4>25$</h4>
+                        <img src="img/Sneakers.png" class="mb-3"/>
+                        <h5>Sephora makeup kit</h5>
+                        <i class="fa fa-plus"></i>
+                      </div>
+                      <div class="item popular_card">
+                          <h4>25$</h4>
+                          <img src="img/basketball.png" class="mb-3"/>
+                          <h5>Sephora makeup kit</h5>
+                          <i class="fa fa-plus"></i>
+                        </div>
+                        <div class="item popular_card">
+                            <h4>25$</h4>
+                            <img src="img/casque.png" class="mb-3"/>
+                            <h5>Sephora makeup kit</h5>
+                            <i class="fa fa-plus"></i>
+                          </div>
+                          <div class="item popular_card">
+                              <h4>25$</h4>
+                              <img src="img/casque.png" class="mb-3"/>
+                              <h5>Sephora makeup kit</h5>
+                              <i class="fa fa-plus"></i>
+                            </div>
+                </div>
+            </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <!-- end popular item-->
+
+    <!-- Footer -->
+    <footer class="page-footer font-small blue">
+    <div class="container text-center text-md-left">
+        <div class="row">
+          <div class="col-md-4 col-sm-6 mt-md-0">
+             <img src="img/logo_footer.png" class="mb-2" width="80%">
+             <p>Here you can use rows and columns to organize.</p>
+        </div>  
+          <div class="col-md-3 col-sm-6  mb-md-0 mb-3">
+  
+          <h5 class="mb-3">Corporate information</h5>
+  
+          <ul class="list-unstyled links">
+            <li class="mb-2">
+              <a href="#!">career</a>
+            </li>
+            <li class="mb-2">
+                <a href="#!">privacy policy</a>
+            </li>
+            <li class="mb-2">
+                <a href="#!">terms condition</a>
+            </li>
+            <li class="mb-2">
+                <a href="#!">cookies</a>
+            </li>
+          </ul>
+  
+        </div>
+        <div class="col-md-3 col-sm-6  mb-md-0 mb-3 links">
+  
+            <!-- Links -->
+            <h5 class="mb-3">Customers Services</h5>
+    
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <a href="#!">Faq</a>
+              </li>
+              <li class="mb-2">
+                  <a href="#!">Contact</a>
+              </li>
+              <li class="mb-2">
+                  <a href="#!">Shipement Dilvery</a>
+              </li>
+              <li class="mb-2">
+                  <a href="#!">How to order</a>
+              </li>
+            </ul>
+    
+          </div>
+        <div class="col-md-2 col-sm-6  mb-md-0 mb-3">
+            <h5 class="mb-3">Follow Us</h5>
+  
+          <ul class="list-unstyled links social">
+            <li>
+              <a href="#!"><i class="fa fa-facebook"></i></a>
+            </li>
+            <li>
+                <a href="#!"><i class="fa fa-twitter"></i></a>
+              </li>
+            <li>
+                <a href="#!"><i class="fa fa-linkedin"></i></a>
+              </li>
+            <li>
+                <a href="#!"><i class="fa fa-youtube"></i></a>
+              </li>
+          </ul>
+  
+        </div>  
+      </div>
+      <hr>  
+    </div>
+    <div class="footer-copyright py-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 mt-2">
+              <span>stylechy 2019 all right reserved</span>
+          </div>
+          <div class="col-md-6 text-md-right">
+              <img src="img/paypal.png" width="50px" height="50px"/>
+              <img src="img/paypal.png" width="50px" height="50px"/>
+              <img src="img/paypal.png" width="50px" height="50px"/>
+          </div>
+        </div>
+      </div>
+    </div>  
+  </footer>
+  <!-- Footer -->
+    <script src="js/jquery-min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script> 
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
